@@ -11,7 +11,7 @@ The application consists of two tabs. The sidebarPanel is shared by both tabs. T
 The data CSV should include: Trend - Detected Trend, Count - Species count, Area - Area Name, areaID - Area ID, Year - Detected Year, Season - Detected Season, seasonID - Season ID with or without numeric/factor predictor variables. These names are case sensitive. Data should be ordered according to factor levels as in sample “Sample Data.csv”. Factor variables should add as factor/character without numeric/integer. This can also be used for monthly or daily data. Simply replace seasonID and Season with the appropriate values. More details can be found in vignatte.
 
 ### Case study: 
-#### Effect of biomes for Masked Lapwing in Australia. 
+#### Effect of biomes for Masked Lapwing in Australia
 
 For this study we have excluded the four marine bioregions Coral Sea, Indian Tropical Islands, Pacific Subtropical Islands and Subantarctic Islands which have both terrestrial and marine areas. To use only 85 bioregions, add the following section to the "generate the adjacency matrix" section soon after reading the shapefile in app.R. The removed shapefile has included here. 
 
