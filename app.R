@@ -1,8 +1,7 @@
 ### Load Packages ###
-library(shiny); library(rgdal); library(mapview); library(spdep) 
-library(sf); library(INLA); library(DT); library(plyr) 
-library(forge); library(dplyr); library(tidyverse)
-library(shinythemes); library(ggplot2); library(leaflet)
+library(shiny); library(shinythemes)
+library(rgdal); library(mapview); library(spdep); library(sf)
+library(INLA); library(DT); library(tidyverse); library(leaflet)
 
 ################################################################################################################
 # Shiny App for Seasonal Abundance Models using Areal Data
@@ -114,6 +113,7 @@ p <- reactive({
     setwd(previouswd)
     
     map <- st_read(paste(uploaddirectory, shpdf$name[grep(pattern="*.shp$", shpdf$name)], sep="/")) # Delete_null_obj=TRUE)
+    sf::sf_use_s2(FALSE)
     p <- poly2nb(map) # construct the neighbour list
     return(p)
 })
@@ -349,7 +349,7 @@ fitsummary <- reactive({
 
 # Summary output of the INLA model
 fitsum <- eventReactive(input$summary, {
-  round(fitsummary()$summary.fixed[,c(1:3,5)], digits = 6)})
+          round(fitsummary()$summary.fixed[,c(1:3,5)], digits = 6)})
 output$summary <- renderPrint({return(fitsum())})
 
 output$val <- renderPrint({
