@@ -1,5 +1,10 @@
 # UDMAD
-Shiny App for Seasonal Abundance Models using Areal Data
+Shiny App for Songle Species Seasonal Spatio-temporal Models using Areal Data
+
+## Layout
+The application consists of two tabs. The sidebarPanel is shared by both tabs. The user must first upload the .CSV file and decide whether or not to normalise the numeric predictors. The user should next upload the shapefile (a combination of .shp,.dbf,.shx, and .prj files) to construct the adjacency matrix. The area name is a unique identifier for the area, and it should match the area names on the map. This shiny application used areal data to fit spatio-temporal models of seasonal species counts. This can be used to count data on a monthly or daily basis by substituting the values seasonID and Season below with monthly/daily values.
+
+The data CSV should include: Trend - Detected Trend, Count - Species count, Area - Area Name, areaID - Area ID, Year - Detected Year, Season - Detected Season, seasonID - Season ID with or without numeric/factor predictor variables. These names are case sensitive. Data should be ordered according to factor levels as in sample “Sample Data.csv”. Factor variables should add as factor/character without numeric/integer. This can also be used for monthly or daily data. Simply replace seasonID and Season with the appropriate values. More details can be found in vignatte.
 
 ### Interim Biogeographic Regionalisation for Australia (IBRA) version 7 Regions shapefile 
 This can be accessed from 
